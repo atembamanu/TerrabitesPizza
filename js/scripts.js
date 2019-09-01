@@ -153,3 +153,40 @@ $(document).ready(function () {
         pizzaCards.push(this.id);
     });
 
+
+
+    for (let j = 0; j < pizzaCards.length; j++) {
+        $('#' + pizzaCards[j]).mouseenter(function () {
+            if ($('#' + pizzaCards[j] + ':hover').length > 0) {
+                $('#' + pizzaCards[j]).find('#pizza-size').change(function () {
+                    pSize = $(this).val();
+                    for (i = 0; i < pizzaPricesIDs.length; i++) {
+                        switch (pSize) {
+                            case 'Small':
+                                $('#' + pizzaPricesIDs[i]).text(sizePrice.smallSize[i]);
+                                $('#' + pizzaCards[j]).find('#pizza-crust').change(function () {
+                                    pCrust = $(this).val();
+                                    for (i = 0; i < pizzaPricesIDs.length; i++) {
+                                        switch (pCrust) {
+                                            case 'Crispy':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.smallSize[i] +
+                                                        crustPrice.onSmallSize.Crispy[i]);
+                                                break;
+                                            case 'Stuffed':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.smallSize[i] +
+                                                        crustPrice.onSmallSize.Stuffed[i]);
+                                                break;
+                                            case 'GlutterFree':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.smallSize[i] +
+                                                        crustPrice.onSmallSize.GlutterFree[i]);
+                                                break;
+                                            default:
+                                                // $('#' + pizzaPricesIDs[i]).text(sizePrice.smallSize[i]+crustPrice.onSmallSize.Crispy[i]);
+                                                break;
+                                        }
+                                    }
+
+                                });
