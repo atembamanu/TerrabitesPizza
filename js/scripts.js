@@ -142,3 +142,14 @@ $(document).ready(function () {
         $('.badge08').hide('slow');
 
     });
+
+    $("h5.card-title").find("span.pprice").each(function () {
+
+        pizzaPricesIDs.push(this.id);
+    });
+
+    $(".pizzas").find(".card").each(function () {
+
+        pizzaCards.push(this.id);
+    });
+
