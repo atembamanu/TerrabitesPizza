@@ -51,3 +51,10 @@ let sizePrice = {
     largeSize: [1700, 2400, 2320, 1950, 1700, 2800, 2390, 2790]
 }
 
+
+let UserChoice = function (size, crust, topping) {
+    this.size = size;
+    this.crust = crust;
+    this.topping = topping;
+
+}
