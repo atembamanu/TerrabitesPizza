@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pizza Nation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
+  <link href="//db.onlinewebfonts.com/c/d93e372335420b253522b255e7d3c0c9?family=Brix+Sans" rel="stylesheet"
+    type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="modal fade" id="deliveryModal" tabindex="-1" role="dialog" aria-labelledby="hireModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="hireModelLabel">Where Do you want your order to be delivered?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <label for="location-text" class="col-form-label ">Delivery Location</label>
+              <textarea class="form-control" id="location-text"
+                placeholder="Enter information that will assist us deliver the order to the right location"
+                required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Changed my Mind</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="deliver-order">Deliver to this
+            Location</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid no-padding">
+    <section id="header">
+      <div class="container-fluid no-pdading" id="header-section">
+        <header class="no-padding" role="banner">
+          <a href="/" title="Home" rel="home" class="site-logo header__logo">
+            <svg class="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 270 16"
+              width="270" height="16" xml:space="preserve">
+              <g>
+                <polygon class="logo__item"
+                  points="13.74 2.14 13.74 4.5 8.71 4.5 8.71 13.86 5.99 13.86 5.99 4.5 0.96 4.5 0.96 2.14 13.74 2.14">
+                </polygon>
+                <path class="logo__item"
+                  d="M20.58,7.54A1.36,1.36,0,0,1,20.69,7,1.41,1.41,0,0,1,21,6.54a1.36,1.36,0,0,1,.45-0.3,1.42,1.42,0,0,1,1.55.3,1.41,1.41,0,0,1,.3.45,1.42,1.42,0,0,1,0,1.1,1.41,1.41,0,0,1-.75.75,1.42,1.42,0,0,1-1.1,0A1.36,1.36,0,0,1,21,8.54a1.41,1.41,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <polygon class="logo__item"
+                  points="41.79 6.8 41.79 9.08 33.46 9.08 33.46 11.5 42.22 11.5 42.22 13.86 30.74 13.86 30.74 2.14 42.14 2.14 42.14 4.5 33.46 4.5 33.46 6.8 41.79 6.8">
+                </polygon>
+                <path class="logo__item"
+                  d="M49.39,7.54A1.36,1.36,0,0,1,49.5,7a1.41,1.41,0,0,1,.3-0.45,1.36,1.36,0,0,1,.45-0.3,1.42,1.42,0,0,1,1.55.3,1.41,1.41,0,0,1,.3.45,1.42,1.42,0,0,1,0,1.1,1.41,1.41,0,0,1-.75.75,1.42,1.42,0,0,1-1.1,0,1.36,1.36,0,0,1-.45-0.3,1.41,1.41,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <path class="logo__item"
+                  d="M59.54,13.86V2.14h7.7a5.92,5.92,0,0,1,2.07.33,4.06,4.06,0,0,1,1.43.88,3.51,3.51,0,0,1,.84,1.27,4.13,4.13,0,0,1,.28,1.49,3.44,3.44,0,0,1-.64,2.14,3.65,3.65,0,0,1-1.8,1.22L72,13.86h-3l-2.34-4H62.26v4H59.54ZM62.26,4.5v3.2h5a2.6,2.6,0,0,0,.89-0.13,1.47,1.47,0,0,0,.57-0.35A1.24,1.24,0,0,0,69,6.71a2.08,2.08,0,0,0,0-1.22A1.25,1.25,0,0,0,68.7,5a1.52,1.52,0,0,0-.57-0.35,2.6,2.6,0,0,0-.89-0.13h-5Z">
+                </path>
+                <path class="logo__item"
+                  d="M79,7.54A1.36,1.36,0,0,1,79.07,7a1.41,1.41,0,0,1,.3-0.45,1.36,1.36,0,0,1,.45-0.3,1.41,1.41,0,0,1,1.1,2.61,1.42,1.42,0,0,1-1.1,0,1.36,1.36,0,0,1-.45-0.3,1.41,1.41,0,0,1-.3-0.45A1.36,1.36,0,0,1,79,7.54">
+                </path>
+                <path class="logo__item"
+                  d="M89.12,13.86V2.14h7.7a5.92,5.92,0,0,1,2.07.33,4.06,4.06,0,0,1,1.43.88,3.51,3.51,0,0,1,.84,1.27,4.13,4.13,0,0,1,.27,1.49,3.44,3.44,0,0,1-.63,2.14A3.65,3.65,0,0,1,99,9.47l2.55,4.39h-3l-2.34-4H91.84v4H89.12ZM91.84,4.5v3.2h5a2.6,2.6,0,0,0,.89-0.13,1.46,1.46,0,0,0,.57-0.35,1.24,1.24,0,0,0,.31-0.51,2.08,2.08,0,0,0,0-1.22A1.26,1.26,0,0,0,98.27,5a1.52,1.52,0,0,0-.57-0.35,2.6,2.6,0,0,0-.89-0.13h-5Z">
+                </path>
+                <path class="logo__item"
+                  d="M108.54,7.54A1.36,1.36,0,0,1,108.65,7a1.43,1.43,0,0,1,.3-0.45,1.42,1.42,0,0,1,2.3.45,1.42,1.42,0,0,1,0,1.1,1.42,1.42,0,0,1-2.3.45,1.43,1.43,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <path class="logo__item"
+                  d="M128.76,11.56H122.1l-1.24,2.3H118l6.35-11.72h2.24l6.35,11.72H130Zm-5.42-2.28h4.18l-2.09-3.87Z">
+                </path>
+                <path class="logo__item"
+                  d="M139.49,7.54A1.36,1.36,0,0,1,139.6,7a1.43,1.43,0,0,1,.3-0.45,1.42,1.42,0,0,1,1.55-.3,1.36,1.36,0,0,1,.45.3,1.39,1.39,0,0,1,.3.45,1.42,1.42,0,0,1,0,1.1,1.39,1.39,0,0,1-.3.45,1.42,1.42,0,0,1-1.55.3,1.38,1.38,0,0,1-.45-0.3,1.43,1.43,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <path class="logo__item"
+                  d="M149.64,13.86V2.14h7.49a8.93,8.93,0,0,1,1.61.13,5.39,5.39,0,0,1,1.18.34,2.84,2.84,0,0,1,.81.52,2.57,2.57,0,0,1,.51.65,2.51,2.51,0,0,1,.26.73,4,4,0,0,1,.07.76,2.87,2.87,0,0,1-.13.89,2.38,2.38,0,0,1-.37.71,2.28,2.28,0,0,1-.58.53,2.94,2.94,0,0,1-.75.34,3,3,0,0,1,1.67.9,2.48,2.48,0,0,1,.58,1.7,3.79,3.79,0,0,1-.09.84,2.94,2.94,0,0,1-.31.81,3.19,3.19,0,0,1-.57.73,3.35,3.35,0,0,1-.88.59,5.24,5.24,0,0,1-1.24.39,8.12,8.12,0,0,1-1.64.15h-7.62Zm7.56-7.12A3,3,0,0,0,158,6.65a1.32,1.32,0,0,0,.5-0.25A0.86,0.86,0,0,0,158.76,6a1.35,1.35,0,0,0,.08-0.46,1.33,1.33,0,0,0-.08-0.46,0.86,0.86,0,0,0-.26-0.37,1.32,1.32,0,0,0-.5-0.25,3,3,0,0,0-.79-0.09h-4.84V6.74h4.84Zm0,4.85a4.7,4.7,0,0,0,1-.09,1.68,1.68,0,0,0,.62-0.25,0.88,0.88,0,0,0,.32-0.41,1.81,1.81,0,0,0,0-1.15,0.9,0.9,0,0,0-.32-0.42A1.61,1.61,0,0,0,158.18,9a5,5,0,0,0-1-.08h-4.84v2.65h4.84Z">
+                </path>
+                <path class="logo__item"
+                  d="M169,7.54A1.36,1.36,0,0,1,169.11,7a1.41,1.41,0,0,1,.3-0.45,1.36,1.36,0,0,1,.45-0.3,1.42,1.42,0,0,1,1.55.3,1.41,1.41,0,0,1,.3.45,1.42,1.42,0,0,1,0,1.1,1.41,1.41,0,0,1-.75.75,1.42,1.42,0,0,1-1.1,0,1.36,1.36,0,0,1-.45-0.3,1.41,1.41,0,0,1-.3-0.45A1.36,1.36,0,0,1,169,7.54">
+                </path>
+                <rect class="logo__item" x="179.15" y="2.14" width="2.72" height="11.72"></rect>
+                <path class="logo__item"
+                  d="M189.2,7.54A1.36,1.36,0,0,1,189.31,7a1.41,1.41,0,0,1,.3-0.45,1.36,1.36,0,0,1,.45-0.3A1.41,1.41,0,1,1,190.62,9a1.37,1.37,0,0,1-.55-0.11,1.36,1.36,0,0,1-.45-0.3,1.41,1.41,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <polygon class="logo__item"
+                  points="211.66 2.14 211.66 4.5 206.62 4.5 206.62 13.86 203.9 13.86 203.9 4.5 198.87 4.5 198.87 2.14 211.66 2.14">
+                </polygon>
+                <path class="logo__item"
+                  d="M218.49,7.54A1.36,1.36,0,0,1,218.6,7a1.43,1.43,0,0,1,.3-0.45,1.42,1.42,0,0,1,1.55-.3,1.36,1.36,0,0,1,.45.3,1.39,1.39,0,0,1,.3.45,1.42,1.42,0,0,1,0,1.1,1.39,1.39,0,0,1-.3.45,1.42,1.42,0,0,1-1.55.3,1.38,1.38,0,0,1-.45-0.3,1.43,1.43,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <polygon class="logo__item"
+                  points="239.7 6.8 239.7 9.08 231.37 9.08 231.37 11.5 240.13 11.5 240.13 13.86 228.65 13.86 228.65 2.14 240.06 2.14 240.06 4.5 231.37 4.5 231.37 6.8 239.7 6.8">
+                </polygon>
+                <path class="logo__item"
+                  d="M247.3,7.54A1.36,1.36,0,0,1,247.41,7a1.46,1.46,0,0,1,.3-0.45,1.4,1.4,0,0,1,.45-0.3,1.41,1.41,0,0,1,1.55,2.3,1.42,1.42,0,0,1-1.55.3,1.4,1.4,0,0,1-.45-0.3,1.46,1.46,0,0,1-.3-0.45,1.36,1.36,0,0,1-.11-0.55">
+                </path>
+                <path class="logo__item"
+                  d="M267.35,4.93a8.08,8.08,0,0,0-1.15-.38c-0.38-.09-0.83-0.18-1.35-0.26a12.26,12.26,0,0,0-1.8-.12,9.35,9.35,0,0,0-1.29.08,3.66,3.66,0,0,0-.88.23,1.23,1.23,0,0,0-.51.35,0.75,0.75,0,0,0-.17.48,0.7,0.7,0,0,0,.2.5,1.64,1.64,0,0,0,.6.37,7.2,7.2,0,0,0,1,.3l1.44,0.3q1.42,0.28,2.47.59a7,7,0,0,1,1.75.75,3,3,0,0,1,1,1,2.86,2.86,0,0,1,.34,1.45,2.93,2.93,0,0,1-.41,1.55,3.22,3.22,0,0,1-1.18,1.12,6.18,6.18,0,0,1-1.89.68,12.61,12.61,0,0,1-2.53.23c-0.52,0-1,0-1.45-.06S260.73,14,260.35,14s-0.73-.14-1-0.22-0.6-.17-0.85-0.26A6.84,6.84,0,0,1,257,12.8l1.33-1.93a8.1,8.1,0,0,0,1.29.48,13.54,13.54,0,0,0,1.49.33,12,12,0,0,0,2,.15,7,7,0,0,0,2.46-.32,1,1,0,0,0,.79-0.9,0.71,0.71,0,0,0-.16-0.48,1.35,1.35,0,0,0-.56-0.34,7.49,7.49,0,0,0-1-.28l-1.61-.34a21.27,21.27,0,0,1-2.6-.68,6.58,6.58,0,0,1-1.69-.82,2.81,2.81,0,0,1-.92-1,3,3,0,0,1-.28-1.32,3.23,3.23,0,0,1,.28-1.3,2.84,2.84,0,0,1,.93-1.12,5.16,5.16,0,0,1,1.73-.78A10.27,10.27,0,0,1,263,1.81a15.43,15.43,0,0,1,2.59.19,13.46,13.46,0,0,1,1.75.41,5.82,5.82,0,0,1,1.3.59Z">
+                </path>
+              </g>
+            </svg>
+          </a>
+          <ul class="header__menu float-right">
+            <li class="header__menu__item">
+              <a href="" id="scrollToProducts" data-hover="Products" title="Products" rel="home"
+                class="header__menu__link">Products</a>
+            </li>
+            <li class="header__menu__item">
+              <a href="#" title="Contact" data-hover="Contact" class="header__menu__link"> Contact</a>
+            </li>
+          </ul>
+        </header>
+        <div class="container">
+          <div class="welcome">
+            <div class="pImage img-responsive float-right">
+              <img src="assets/pizza01.png" alt="">
+            </div>
+            <div id="intro">
+              <h1>Tarrabites Pizza is in town! Order now & Enjoy amazing Discounts </h1>
+              <h3 class="text-center description">Terrabites pizza delicacy are made of premium, natural select-heading
+                in arange of delicious new flavours.
+                Feed your brain and body with the Terrabites superfood snack like you have never tasted before.</h3>
+            </div>
+            <div class="container-fluid">
+              <button class="btn btn-lg" id="discover">Discover Intricacy &#127790;</button>
+              <img src="assets/mouse_click.png" alt="" id="scroll">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section id="more-info">
+      <div class="container-fluid text-center">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <img src="assets/pizza02.png" alt="" class="img-fluid">
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div id="expectations" class="">
+              <h1>What To Expect</h1>
+              <h2><span class="text-primary">Mouth Watering</span> | <span class="text-success">Soft & Tender</span> |
+                <span class="text-danger">Addictive</span> |<span class="text-success"> Best of Best</span> </h2>
+              <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet totam culpa fugiat
+                accusamus eos laudantium maxime amet, voluptatem illo qui mollitia. Excepturi repellat voluptatum,
+                nostrum
+                nobis laborum molestiae incidunt quaerat.</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="pizza_pricing">
+      <div class="container-fluid">
+        <div class="pizzas">
+          <h2 id="pizzaIntro"></h2>
+          <hr>
+          <h1>Pizza Space</h1>
+          <h3>Welcome! Shop untill the basket is full &#128540;</h3>
+          <div class="alert alert-info" role="alert">
+            <h5><strong>Good News!<br>The prices shown below are just placeholders. Therefore Don't panic, You are
+                required to
+                toggle between the Pizza size, crust and Topping to get the actual price of each delicacy. Toggle
+                through the details of one Pizza to get corresponding prices of other pizzas. Efficient right? </strong>
+            </h5>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza01">
+                <img class="card-img-top" src="assets/pizza03.jpg" alt="pizza03">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza01alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza01name">Neapolitan Pizza </span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza01price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge01">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza01" id="pizza-size" required>
+                          <option value="">Select Size</option>
+                          <option value="Small">Small</option>
+                          <option value="Medium">Medium</option>
+                          <option value="Large">Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge01">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza01" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge01">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza01" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza01">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view01">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza02">
+                <img class="card-img-top" src="assets/pizza04.jpg" alt="pizza04">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza02alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza02name">Chicago Pizza</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza02price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge02">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza02" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge02">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza02" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge02">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza02" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza02">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view02">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza03">
+                <img class="card-img-top" src="assets/pizza05.jpg" alt="baked-chilli-jacket-potatoes">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza03alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza03name">Sicilian Pizza</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza03price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge03">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza03" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge03">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza03" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge03">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza03" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza03">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view03">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza04">
+                <img class="card-img-top" src="assets/pizza06.jpg" alt="baked-chilli-jacket-potatoes">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza04alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza04name">California Pizza</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza04price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge04">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza04" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge04">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza04" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge04">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza04" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza04">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view04">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza05">
+                <img class="card-img-top" src="assets/pizza07.jpg" alt="baked-chilli-jacket-potatoes">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza05alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza05name">Greek Pizza</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza05price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge05">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza05" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge05">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza05" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge05">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza05" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza05">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view05">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza06">
+                <img class="card-img-top" src="assets/pizza08.jpg" alt="baked-chilli-jacket-potatoes">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza06alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza06name">St. Louis Pizza</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza06price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge06">1</span>Size</strong>
+                        </h5>
+                        <select class="form-control badge-title pizza06" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge06">2</span>Crust</strong>
+                        </h5>
+                        <select class="form-control badge-title pizza06" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge06">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza06" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning pizzabtn float-right" id="btnpizza06">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view06">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza07">
+                <img class="card-img-top" src="assets/pizza09.jpg" alt="baked-chilli-jacket-potatoes">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza07alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza07name">Detroit Pizza</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza07price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge07">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza07" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge07">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza07" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge07">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza07" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza07">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view07">View Basket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card" id="pizza08">
+                <img class="card-img-top" src="assets/pizza10.jpg" alt="baked-chilli-jacket-potatoes">
+                <div class="card-body">
+                  <div class="alert alert-success  msucess-alert" role="alert" id="pizza08alert">
+                    <h5><strong>Added to basket &#128717; </strong></h5>
+                  </div>
+                  <h5 class="card-title"><span id="pizza08name">Indian pizza-crust</span><span
+                      class="badge badge-warning float-right">KSH
+                      <span id="pizza08price" class="pprice">2600</span></span></h5>
+                  <p class="card-text">
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge08">1</span>Size</strong></h5>
+                        <select class="form-control badge-title pizza08" id="pizza-size">
+                          <option selected>Select Size</option>
+                          <option>Small</option>
+                          <option>Medium</option>
+                          <option>Large</option>
+                        </select>
+
+                      </div>
+                      <div class="col-6">
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge08">2</span>Crust</strong></h5>
+                        <select class="form-control badge-title pizza08" id="pizza-crust">
+                          <option selected>Select Crust</option>
+                          <option>Crispy</option>
+                          <option>Stuffed</option>
+                          <option>Glutter free</option>
+                        </select>
+                        <h5 id="select-heading"><strong><span
+                              class="badge badge-pill badge-warning mbadge badge08">3</span>Topping</strong></h5>
+                        <select class="form-control badge-title pizza08" id="pizza-topping">
+                          <option selected>Select Topping</option>
+                          <option>Pepperoni</option>
+                          <option>Onion</option>
+                          <option>Bacon</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </p>
+                  <button class="btn btn-warning float-right pizzabtn" id="btnpizza08">Add to Basket</button>
+                  <button class="btn float-left view-basket" id="view08">View Basket</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="pizza_basket">
+      <div class=" jumbotron container">
+        <div class="deliveyChoice">
+          <h2 class="text-danger">Hi, Would you like us to deliver your order?</h2>
+          <div class="form-check">
+            <input class="form-check-input big" type="radio" name="choice" value="yes">
+            <label for="yes">Yes, Please &#128521;</label><br>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input big" type="radio" name="choice" value="no">
+            <label for="no">No, Thank You &#128524;</label>
+          </div>
+        </div>
+        <div class="alert alert-info" role="alert" id="note">
+          <h5>
+            Your Order will be delivered to <span id="note-text"></span>.
+          </h5>
+        </div>
+        <div class="alert alert-danger" role="alert" id="ifDelivered">
+          <h5>
+            You will be charged <strong>Ksh. 210.00 </strong>for Delivery.
+          </h5>
+        </div>
+
+        <br>
+
+        <div class="basket">
+          <h2 class="text-primary">Your Basket</h2>
+        </div>
+
+        <table class="table table-responsive  table-hover table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th scope= "col">Pizza Name</th>
+              <th scope= "col">Size</th>
+              <th scope= "col">Crust</th>
+              <th scope= "col">Topping(s)</th>
+              <th scope= "col">Qnty</th>
+              <th scope= "col">Total Cost</th>
+            </tr>
+          </thead>
+          <tbody id="table-row">
+            <tr id="dev">
+              <th scope="row">Delivery Cost</th>
+              <td>---</td>
+              <td>---</td>
+              <td>---</td>
+              <td>---</td>
+              <td>---</td>
+              <td><strong><span id="delcost">210.00</span></strong></td>
+            </tr>
+          </tbody>
+        </table> 
+        <div class="cBtns w-auto">
+          <button class="btn btn-lg btn-warning " id="backspace">I WANT MORE</button>
+          <button class="btn btn-lg btn-success " id="checkout">CHECKOUT</button>
+        </div>
+      </div>
+
+
+    </section>
+    <div class="container method">
+      <div class="jumbotron">
+        <h1>Select Checkout Method</h1>
+
+        <div class="payments">
+          <img src="assets/mpesa.png" alt="">
+          <img src="assets/visa.png" alt="" id="visa">
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer font-small bg-warning">
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+          <a href=""> Betahood Softwares</a>
+        </div>
+
+      </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
