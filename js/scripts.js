@@ -58,3 +58,87 @@ let UserChoice = function (size, crust, topping) {
     this.topping = topping;
 
 }
+//user interface logic
+$(document).ready(function () {
+    $("#scrollToProducts").click(function () {
+        window.scrollTo($("#pizza_pricing"));
+    });
+    $('#pizza01').mouseenter(function () {
+        $('#btnpizza01').show('slow');
+        $('.badge01').show('slow');
+
+    }).mouseleave(function () {
+        $('#btnpizza01').hide('slow');
+        $('.badge01').hide('slow');
+
+    });
+    $('#pizza02').mouseenter(function () {
+        $('#btnpizza02').show('slow');
+        $('.badge02').show('slow');
+
+    }).mouseleave(function () {
+        $('#btnpizza02').hide('slow');
+        $('.badge02').hide('slow');
+
+    });
+    $('#pizza03').mouseenter(function () {
+
+        $('#btnpizza03').show('slow');
+        $('.badge03').show('slow');
+
+    }).mouseleave(function () {
+
+        $('#btnpizza03').hide('slow');
+        $('.badge03').hide('slow');
+
+    });
+    $('#pizza04').mouseenter(function () {
+
+        $('#btnpizza04').show('slow');
+        $('.badge04').show('slow');
+
+    }).mouseleave(function () {
+
+        $('#btnpizza04').hide('slow');
+        $('.badge04').hide('slow');
+
+    });
+    $('#pizza05').mouseenter(function () {
+
+        $('#btnpizza05').show('slow');
+        $('.badge05').show('slow');
+
+    }).mouseleave(function () {
+
+        $('#btnpizza05').hide('slow');
+        $('.badge05').hide('slow');
+
+    });
+    $('#pizza06').mouseenter(function () {
+        $('#btnpizza06').show('slow');
+        $('.badge06').show('slow');
+
+    }).mouseleave(function () {
+        $('#btnpizza06').hide('slow');
+        $('.badge06').hide('slow');
+
+    });
+    $('#pizza07').mouseenter(function () {
+
+        $('#btnpizza07').show('slow');
+        $('.badge07').show('slow');
+
+    }).mouseleave(function () {
+
+        $('#btnpizza07').hide('slow');
+        $('.badge07').hide('slow');
+
+    });
+    $('#pizza08').mouseenter(function () {
+        $('#btnpizza08').show('slow');
+        $('.badge08').show('slow');
+    }).mouseleave(function () {
+        $('#btnpizza08').hide('slow');
+        $('.badge08').hide('slow');
+
+    });
