@@ -61,9 +61,6 @@ let UserChoice = function (size, crust, topping) {
 }
 //user interface logic
 $(document).ready(function () {
-    $("#scrollToProducts").click(function () {
-        window.scrollTo($("#pizza_pricing"));
-    });
     $('#pizza01').mouseenter(function () {
         $('#btnpizza01').show('slow');
         $('.badge01').show('slow');
@@ -366,6 +363,7 @@ $(document).ready(function () {
     });
     $('#backspace').click(function () {
         $('#pizza_pricing').show(2500);
+        $('#more-info').show(2500);
         $('#pizza_basket').hide(2500);
 
     });
@@ -376,6 +374,7 @@ $(document).ready(function () {
 
     $('.payments').click(function(){
         alert("Your payments have been received.")
+        $('#more-info').show(2500);
         $('#pizza_pricing').show(2500);
         $('#checkout').hide("slow")
         $('.method').hide("slow") 
@@ -390,6 +389,7 @@ $(document).ready(function () {
     viewBasket.forEach(function (viewBtn) {
         $('#' + viewBtn).click(function () {
             $('#pizza_basket').show(2500);
+            $('#more-info').hide(2500);
             $('#pizza_pricing').hide(2500);
 
         })
@@ -399,6 +399,8 @@ $(document).ready(function () {
         addToBasket.push(this.id);
 
     });
+    let newUserChoice = new UserChoice(pSize, pCrust, pTopping);
+    // console.log(newUserChoice.size)
 
 
     pizzaPricesIDs.forEach(function (pizzaPricesID) {
@@ -595,9 +597,13 @@ $(document).ready(function () {
 
     });
 
-    let newUserChoice = new UserChoice(pSize, pCrust, pTopping);
-    // console.log(newUserChoice.size)
+  $('#contact_us').click(function(){
+    $('#contactModal').modal('show');
+  })
 
+  $('#send_message').click(function(){
+      alert("We have received your message "+$('#uname').val() +".  We will get back to you as soon as possible");
+  })
 
 
 

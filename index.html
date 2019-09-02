@@ -15,6 +15,40 @@
 </head>
 
 <body>
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="hireModelLabel">We love feedback.Write to us below</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <label for="location-text" class="col-form-label ">Name</label>
+              <input type="text" id="uname" name="name" placeholder="Your name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="location-text" class="col-form-label ">Message</label>
+                <textarea class="form-control" id="location-text"
+                placeholder="Write to us a comment, feedback or complain. "
+                required></textarea>
+              </div>
+
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="send_message">Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal fade" id="deliveryModal" tabindex="-1" role="dialog" aria-labelledby="hireModelLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -112,11 +146,11 @@
           </a>
           <ul class="header__menu float-right">
             <li class="header__menu__item">
-              <a href="" id="scrollToProducts" data-hover="Products" title="Products" rel="home"
+              <a href="#pizza_pricing"  data-hover="Products" title="Products" rel="home"
                 class="header__menu__link">Products</a>
             </li>
             <li class="header__menu__item">
-              <a href="#" title="Contact" data-hover="Contact" class="header__menu__link"> Contact</a>
+              <a href="#" title="Contact" data-hover="Contact" class="header__menu__link" id="contact_us"> Contact</a>
             </li>
           </ul>
         </header>
@@ -132,7 +166,7 @@
                 Feed your brain and body with the Terrabites superfood snack like you have never tasted before.</h3>
             </div>
             <div class="container-fluid">
-              <button class="btn btn-lg" id="discover">Discover Intricacy &#127790;</button>
+             <a href="#pizza_pricing"> <button class="btn btn-lg" id="discover">Discover Intricacy &#127790;</button></a>
               <img src="assets/mouse_click.png" alt="" id="scroll">
             </div>
           </div>
