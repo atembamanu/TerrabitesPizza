@@ -363,3 +363,20 @@ $(document).ready(function () {
             // $('#ifDelivered').show('slow');
         }
     });
+    $('#backspace').click(function () {
+        $('#pizza_pricing').show(2500);
+        $('#pizza_basket').hide(2500);
+
+    });
+    $('#checkout').click(function(){
+        $('#pizza_basket').hide("slow")
+        $('.method').show("slow");
+    })
+
+    $('.payments').click(function(){
+        alert("Your payments have been received.")
+        $('#pizza_pricing').show(2500);
+        $('#checkout').hide("slow")
+        $('.method').hide("slow") 
+    })
+
