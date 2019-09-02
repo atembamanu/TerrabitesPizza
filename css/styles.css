@@ -179,3 +179,21 @@ input#qnty {
     margin: 5%;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    #intro>h1 {
+        color: #0f394f;
+        font-weight: bold;
+        font-family: 'Brix Sans';
+        /* text-align   : center; */
+        text-justify: justify;
+        font-size: 35px !important
+    }
+
+    .description {
+        max-width: 100%;
+        float: left;
+        font-size: 25px;
+    }
+
+
+}
