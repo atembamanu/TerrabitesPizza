@@ -39,7 +39,6 @@ You can see the live working application through the this link. [Terrabites Pizz
 
 ## Getting started
 
-It is easy to get started with  Ghana Birthday Akan web application.
 * Copy the repository url on the top right marked with green.
 * use **git clone** the url to get the project to your local computer.
 
@@ -52,7 +51,7 @@ It is easy to get started with  Ghana Birthday Akan web application.
 * Now feel free to hack around the project.
 
 ## Technologies Used
-The application is developed using [JAVASCRIPT](https://www.w3schools.com/js/default.asp),  [HTML5](https://www.w3schools.com/html/html5_intro.asp) and [CSS](https://www.w3schools.com/css/default.asp). You canfind more about this technologies by clicking on the links.
+The application is developed using [JAVASCRIPT](https://www.w3schools.com/js/default.asp),  [HTML5](https://www.w3schools.com/html/html5_intro.asp) and [CSS](https://www.w3schools.com/css/default.asp). You can find more about this technologies by clicking on the links.
 
 [JAVASCRIPT](https://www.w3schools.com/js/default.asp) : was used in validating the user inputs and returning errors if any. It was also used to make the application more interaction than ever. All Business logics were handled by this programming language.
 
