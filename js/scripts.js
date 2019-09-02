@@ -344,3 +344,22 @@ $(document).ready(function () {
             }
 
         });
+    }
+    $('input[name="choice"]').change(function () {
+        if ($(this).is(':checked') && $(this).val() == 'yes') {
+            $('#deliveryModal').modal('show');
+
+            $('#deliver-order').click(function () {
+                let deliveryLocation = $('#location-text').val();
+                // alert(deliveryLocation)
+                $('#note-text').text(deliveryLocation);
+                $('.deliveyChoice').hide('slow');
+                $('#note').show('slow');
+                $('#ifDelivered').show('slow');
+                $('#dev').show('slow')
+            });
+        } else {
+            $('.deliveyChoice').hide('slow');
+            // $('#ifDelivered').show('slow');
+        }
+    });
