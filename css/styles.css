@@ -197,3 +197,37 @@ input#qnty {
 
 
 }
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #intro>h1 {
+        color: #0f394f;
+        font-weight: bold;
+        font-family: 'Brix Sans';
+        text-align: center;
+        float: right;
+        text-justify: justify;
+        font-size: 38px !important
+    }
+
+    .description {
+        max-width: 100%;
+
+    }
+
+    .pImage {
+        margin-right: 50%;
+        align-content: center;
+        float: none;
+    }
+
+    .description {
+        float: left;
+        font-size: 30px !important
+    }
+
+    #discover {
+        align-content: center;
+
+    }
+
+}
