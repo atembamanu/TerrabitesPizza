@@ -163,8 +163,7 @@ label {
 #note,
 .msucess-alert,
 .pizzabtn,
-.method,
-#more-info {
+.method{
     display: none;
 }
 
@@ -232,7 +231,7 @@ input#qnty {
 
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 0px) and (max-width: 480px) {
     #intro>h1 {
         color: #0f394f;
         font-weight: bold;
@@ -264,7 +263,7 @@ input#qnty {
         display: block;
     }
 
-    /* .pImage{
+    .pImage{
        display: none;
-    } */
+    }
 }
