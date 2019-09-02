@@ -35,3 +35,147 @@ ul.header__menu li {
 ul.header__menu li a {
     color: #0f394f;
 }
+
+header {
+    z-index: 2;
+    /* background-color: rgb(227, 217, 191); */
+    /* position: fixed; */
+    top: 0;
+    /* box-shadow: 5px 5px 12px white; */
+    padding: 40px;
+    width: 100%;
+
+}
+
+.welcome {
+    padding-top: 19%;
+}
+
+#intro {
+    padding-top: 80px
+}
+
+.logo {
+    margin: 0;
+    padding: 0;
+}
+
+#intro>h1 {
+    color: #0f394f;
+    font-weight: bold;
+    font-family: 'Brix Sans';
+    font-size: 74px !important
+}
+
+.description {
+    float: right;
+    max-width: 400px;
+}
+
+#expectations {
+    margin-top: 13%
+}
+
+#expectations h1 {
+    color: #0f394f;
+    font-weight: bold
+}
+
+#discover {
+    margin-top: 10%;
+    margin-left: 18%;
+    font-size: 200%;
+    color: black;
+    background-color: #f09179;
+}
+
+.badge-cash {
+    background: #f09179;
+}
+
+#discover:hover {
+    margin-top: 10%;
+    margin-left: 18%;
+    font-size: 200%;
+    color: #fff;
+    background-color: #0f394f;
+}
+
+.view-basket {
+    color: black;
+    background-color: #f09179;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.view-basket:hover {
+    color: #fff;
+    background-color: #0f394f;
+}
+
+.mbadge {
+    height: 2px;
+}
+
+#scroll,
+.mbadge {
+
+    display: none;
+}
+
+table {
+    font-size: 26px;
+}
+
+.big {
+    width: 1.5em;
+
+    height: 1.5em;
+}
+
+#dev,
+#ifDelivered,
+#total {
+    display: none
+}
+
+label {
+    font-size: 29px;
+    margin-left: 15px;
+}
+.payments{
+    padding: 80px;
+}
+.modal-title,
+.modal {
+    font-size: 25px;
+}
+
+.modal-footer>button {
+    text-transform: uppercase;
+    font-weight: bolder
+}
+
+
+#pizza_basket,
+#note,
+.msucess-alert,
+.pizzabtn,
+.method,
+#more-info {
+    display: none;
+}
+
+input#qnty {
+    max-width: 30%;
+    text-align: center;
+    background-color: #bee5eb;
+    /* border: none; */
+}
+
+#pizza_basket {
+    margin: 5%;
+}
+
