@@ -402,3 +402,45 @@ $(document).ready(function () {
 
     pizzaPricesIDs.forEach(function (pizzaPricesID) {
         addToBasket.forEach(function (addPizza, index) {
+            function addRows() {
+                $("#dev").before('<tr class="table-info">' +
+                    '<th scope="row">&#128717;</th>' +
+                    '<td>' + $("#pizza02name").text() + '</td>' +
+                    '<td>' + pSize + '</td>' +
+                    '<td>' + pCrust + '</td>' +
+                    '<td>' + pTopping + '</td>' +
+                    '<td>1  X</td>' +
+                    '<td class="sub" id="subTotal">' + $('#' + pizzaPricesID).text() + '</td>' +
+                    '</tr>');
+
+
+                    let grandTotal = 0;
+                    let deliveryCost = Number($('#delcost').text());
+                    $('.table-info').find('.sub').each(function () {
+                        let stval = Number($(this).text());
+                        grandTotal += isNaN(stval) ? 0 : stval + deliveryCost;
+
+                    });
+                   
+                    if($("#total").length == 0) {
+                    $("#dev").after(
+                        '<tr id="total">' +
+                        '<th scope="row">Grant Total Amount</th>' +
+                        '<td>---</td>' +
+                        '<td>---</td>' +
+                        '<td>---</td>' +
+                        '<td>---</td>' +
+                        '<td>---</td>' +
+                        '<td><strong><span id="pizzaTotalPrice">' + grandTotal.toFixed(2) + '</span></strong></td>' +
+                        '</tr>'
+                    );
+                    $('#total').show();
+                }else{
+                    $('#total').find("#pizzaTotalPrice").text(grandTotal.toFixed(2));
+                
+                    $('#total').show();
+                }
+                
+                
+
+            }
