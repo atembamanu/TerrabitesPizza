@@ -380,3 +380,21 @@ $(document).ready(function () {
         $('.method').hide("slow") 
     })
 
+    $(".card-body").find("button.view-basket").each(function () {
+
+        viewBasket.push(this.id);
+
+    });
+
+    viewBasket.forEach(function (viewBtn) {
+        $('#' + viewBtn).click(function () {
+            $('#pizza_basket').show(2500);
+            $('#pizza_pricing').hide(2500);
+
+        })
+    })
+    $(".card-body").find("button.pizzabtn").each(function () {
+
+        addToBasket.push(this.id);
+
+    });
