@@ -35,7 +35,7 @@ As a user of the web application you will be able to:
 |Page loads and toppings select box is displayed  |User selects the toppings they want   |The price of the corresponding pizza topping is displayed|
 
 ## Working Live Application
-You can see the live working application through the this link. [](https://atembamanu.github.io/TerrabitesPizza/index.html)
+You can see the live working application through the this link. [Terrabites Pizza](https://atembamanu.github.io/TerrabitesPizza/index.html)
 
 ## Getting started
 
