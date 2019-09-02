@@ -363,7 +363,6 @@ $(document).ready(function () {
     });
     $('#backspace').click(function () {
         $('#pizza_pricing').show(2500);
-        $('#more-info').show(2500);
         $('#pizza_basket').hide(2500);
 
     });
@@ -373,8 +372,7 @@ $(document).ready(function () {
     })
 
     $('.payments').click(function(){
-        alert("Your payments have been received.")
-        $('#more-info').show(2500);
+        alert("Your payments have been received.");
         $('#pizza_pricing').show(2500);
         $('#checkout').hide("slow")
         $('.method').hide("slow") 
@@ -389,7 +387,7 @@ $(document).ready(function () {
     viewBasket.forEach(function (viewBtn) {
         $('#' + viewBtn).click(function () {
             $('#pizza_basket').show(2500);
-            $('#more-info').hide(2500);
+;
             $('#pizza_pricing').hide(2500);
 
         })

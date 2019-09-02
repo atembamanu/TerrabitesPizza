@@ -163,7 +163,8 @@ label {
 #note,
 .msucess-alert,
 .pizzabtn,
-.method{
+.method,
+#more-info {
     display: none;
 }
 
