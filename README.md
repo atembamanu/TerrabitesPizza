@@ -1,6 +1,5 @@
-# BirthdayAkan
+# Terribites Pizza
 
-### Image before user submits DOB and Gender
 ![Alt text](assets/pizzaa.png?raw=true "")
 
 ## Description
@@ -36,7 +35,7 @@ As a user of the web application you will be able to:
 |Page loads and toppings select box is displayed  |User selects the toppings they want   |The price of the corresponding pizza topping is displayed|
 
 ## Working Live Application
-You can see the live working application through the this link. [Birthday Akan](https://atembamanu.github.io/akanGhana/index.html)
+You can see the live working application through the this link. [](https://atembamanu.github.io/TerrabitesPizza/index.html)
 
 ## Getting started
 
@@ -45,16 +44,12 @@ It is easy to get started with  Ghana Birthday Akan web application.
 * use **git clone** the url to get the project to your local computer.
 
 
-    * **git clone https://github.com/atembamanu/akanGhana.git**
+    * **git clone https://github.com/atembamanu/TerrabitesPizza.git**
 *   The repo comes in a zipped or compressed format. Extract to your prefered location and open it.
 
 * now open the directory created with your favorite IDE. if Atom just type **.atom** if VSCode type **.code** . This will lauch the editor with the project setup, 
 
 * Now feel free to hack around the project.
-
-
-## Known Bugs
-The application works fine. But currently i'm trying to cater for the Leap year babies who are born in this unique days.
 
 ## Technologies Used
 The application is developed using [JAVASCRIPT](https://www.w3schools.com/js/default.asp),  [HTML5](https://www.w3schools.com/html/html5_intro.asp) and [CSS](https://www.w3schools.com/css/default.asp). You canfind more about this technologies by clicking on the links.
