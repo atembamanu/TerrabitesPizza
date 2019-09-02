@@ -247,3 +247,32 @@ $(document).ready(function () {
                                     }
 
                                 });
+                                $('#' + pizzaCards[j]).find('#pizza-topping').change(function () {
+                                    pTopping = $(this).val();
+                                    for (i = 0; i < pizzaPricesIDs.length; i++) {
+                                        switch (pTopping) {
+                                            case 'Pepperoni':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.mediumSize[i] +
+                                                        crustPrice.onMediumSize.Crispy[i] +
+                                                        toppingPrice.onMediumSize.Pepperoni[i]);
+                                                break;
+                                            case 'Onion':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.mediumSize[i] +
+                                                        crustPrice.onMediumSize.Stuffed[i] +
+                                                        toppingPrice.onMediumSize.Onion[i]);
+                                                break;
+                                            case 'Bacon':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.mediumSize[i] +
+                                                        crustPrice.onMediumSize.GlutterFree[i] +
+                                                        toppingPrice.onMediumSize.Bacon[i]);
+                                                break;
+                                            default:
+                                                // $('#' + pizzaPricesIDs[i]).text(sizePrice.smallSize[i]+crustPrice.onSmallSize.Crispy[i]);
+                                                break;
+                                        }
+                                    }
+                                });
+                                break;
