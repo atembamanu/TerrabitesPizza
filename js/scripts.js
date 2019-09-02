@@ -304,3 +304,43 @@ $(document).ready(function () {
                                     }
 
                                 });
+                                $('#' + pizzaCards[j]).find('#pizza-topping').change(function () {
+                                    pTopping = $(this).val();
+                                    for (i = 0; i < pizzaPricesIDs.length; i++) {
+                                        switch (pTopping) {
+                                            case 'Pepperoni':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.largeSize[i] +
+                                                        crustPrice.onLargeSize.Crispy[i] +
+                                                        toppingPrice.onLargeSize.Pepperoni[i]);
+                                                break;
+                                            case 'Onion':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.largeSize[i] +
+                                                        crustPrice.onLargeSize.Stuffed[i] +
+                                                        toppingPrice.onLargeSize.Onion[i]);
+                                                break;
+                                            case 'Bacon':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.largeSize[i] +
+                                                        crustPrice.onLargeSize.GlutterFree[i] +
+                                                        toppingPrice.onLargeSize.Bacon[i]);
+                                                break;
+                                            default:
+                                                // $('#' + pizzaPricesIDs[i]).text(sizePrice.smallSize[i]+crustPrice.onSmallSize.Crispy[i]);
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                break;
+                            default:
+                                $('#' + pizzaPricesIDs[i]).text(sizePrice.smallSize[i]);
+                                break;
+                        }
+                    }
+
+                });
+            }
+
+        });
