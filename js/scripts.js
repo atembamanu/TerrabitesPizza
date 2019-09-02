@@ -219,3 +219,31 @@ $(document).ready(function () {
                                     }
                                 });
                                 break;
+                            case 'Medium':
+                                $('#' + pizzaPricesIDs[i]).text(sizePrice.mediumSize[i]);
+                                $('#' + pizzaCards[j]).find('#pizza-crust').change(function () {
+                                    pCrust = $(this).val();
+                                    for (i = 0; i < pizzaPricesIDs.length; i++) {
+                                        switch (pCrust) {
+                                            case 'Crispy':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.mediumSize[i] +
+                                                        crustPrice.onMediumSize.Crispy[i]);
+                                                break;
+                                            case 'Stuffed':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.mediumSize[i] +
+                                                        crustPrice.onMediumSize.Stuffed[i]);
+                                                break;
+                                            case 'GlutterFree':
+                                                $('#' + pizzaPricesIDs[i])
+                                                    .text(sizePrice.mediumSize[i] +
+                                                        crustPrice.onMediumSize.GlutterFree[i]);
+                                                break;
+                                            default:
+                                                // $('#' + pizzaPricesIDs[i]).text(sizePrice.smallSize[i]+crustPrice.onSmallSize.Crispy[i]);
+                                                break;
+                                        }
+                                    }
+
+                                });
