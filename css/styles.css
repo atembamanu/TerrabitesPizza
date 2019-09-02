@@ -13,3 +13,25 @@ body {
 .card-title {
     font-size: 19px;
 }
+
+#header {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(227, 217, 191);
+    margin: 0;
+}
+
+.alert-good {
+    background-color: #e9ecef
+}
+
+ul.header__menu li {
+    display: inline;
+    padding: 20px;
+    font-size: 35px;
+
+}
+
+ul.header__menu li a {
+    color: #0f394f;
+}
