@@ -444,3 +444,152 @@ $(document).ready(function () {
                 
 
             }
+
+            switch (index) {
+                case 0:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza01price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza01alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza01alert').hide('slow');
+                            });
+
+                        }
+                    });
+                    break;
+                case 1:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza02price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza02alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza02alert').hide('slow');
+                            });
+
+
+                        }
+
+
+                    });
+                    break;
+                case 2:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza03price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza03alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza03alert').hide('slow');
+                            });
+
+
+                        }
+                    });
+
+                    break;
+                case 3:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza04price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza04alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza04alert').hide('slow');
+                            });
+
+
+                        }
+                    });
+                    break;
+                case 4:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza05price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza05alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza05alert').hide('slow');
+                            });
+
+
+                        }
+                    });
+                    break;
+                case 5:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza06price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza06alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza06alert').hide('slow');
+                            });
+
+
+                        }
+                    });
+                    break;
+                case 6:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza07price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza07alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza07alert').hide('slow');
+                            });
+
+
+                        }
+                    });
+                    break;
+                case 7:
+                    $('#' + addPizza).click(function () {
+                        if (pizzaPricesID !== 'pizza08price') {
+                            return;
+                        } else {
+                            addRows();
+                            $('#pizza08alert').show('slow');
+
+                            $(".msucess-alert").delay(1500).slideUp('slow', function () {
+
+                                $('#pizza08alert').hide('slow');
+                            });
+
+
+                        }
+                    });
+                    break;
+                default:
+                    alert("Cant find price of that pizza")
+                    break
+            }
+
+
+        });
+
+    });
