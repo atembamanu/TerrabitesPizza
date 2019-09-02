@@ -398,3 +398,7 @@ $(document).ready(function () {
         addToBasket.push(this.id);
 
     });
+
+
+    pizzaPricesIDs.forEach(function (pizzaPricesID) {
+        addToBasket.forEach(function (addPizza, index) {
