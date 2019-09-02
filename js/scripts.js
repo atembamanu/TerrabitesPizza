@@ -593,3 +593,12 @@ $(document).ready(function () {
         });
 
     });
+
+    let newUserChoice = new UserChoice(pSize, pCrust, pTopping);
+    // console.log(newUserChoice.size)
+
+
+
+
+
+});
