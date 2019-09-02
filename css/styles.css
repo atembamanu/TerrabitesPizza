@@ -157,7 +157,9 @@ label {
     text-transform: uppercase;
     font-weight: bolder
 }
-
+#more-info{
+    margin-top: 40px;
+}
 
 #pizza_basket,
 #note,
@@ -183,7 +185,7 @@ input#qnty {
         color: #0f394f;
         font-weight: bold;
         font-family: 'Brix Sans';
-        /* text-align   : center; */
+        text-align   : center;
         text-justify: justify;
         font-size: 35px !important
     }
@@ -205,7 +207,7 @@ input#qnty {
         text-align: center;
         float: right;
         text-justify: justify;
-        font-size: 38px !important
+        font-size: 78px !important
     }
 
     .description {
@@ -216,12 +218,12 @@ input#qnty {
     .pImage {
         margin-right: 50%;
         align-content: center;
-        float: none;
+       
     }
 
     .description {
         float: left;
-        font-size: 30px !important
+        font-size: 40px !important
     }
 
     #discover {
@@ -238,9 +240,13 @@ input#qnty {
         font-family: 'Brix Sans';
         text-align: center;
         text-justify: justify;
+        
         font-size: 38px !important
     }
-
+    .welcome, #intro{
+        padding: 0%; 
+    
+    }
     .description {
         float: left;
         font-size: 21px;
