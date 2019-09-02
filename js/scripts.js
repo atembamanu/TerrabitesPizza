@@ -28,6 +28,7 @@ let crustPrice = {
     }
 };
 
+
 let toppingPrice = {
     onSmallSize: {
         Pepperoni: [150, 200, 320, 550, 200, 400, 390, 390],
@@ -602,3 +603,5 @@ $(document).ready(function () {
 
 
 });
+
+
